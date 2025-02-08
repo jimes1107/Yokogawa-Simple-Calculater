@@ -1,17 +1,5 @@
 ﻿using System.ComponentModel;
-using System.IO;
-using System.Text;
 using System.Windows;
-using System.Windows.Automation;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Yokogawa_Simple_Calculater
 {
@@ -80,7 +68,6 @@ namespace Yokogawa_Simple_Calculater
         }
         public void PlusButton_Click(object sender, RoutedEventArgs e)
         {
-
             opp = "+";
             ButtonClick();
         }
@@ -118,7 +105,6 @@ namespace Yokogawa_Simple_Calculater
             value1 = 0;
             Input = 0;
             Log = "";
-            
         }
 
         public void ClearInputButton_Click(object sender, RoutedEventArgs e)
