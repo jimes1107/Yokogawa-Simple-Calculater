@@ -8,6 +8,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -55,6 +56,22 @@ namespace Yokogawa_Simple_Calculater
             Log = Log + string.Format("{0}\n", Input);
             value1 = Input;
         }
+        private void ButtonClick()
+        {
+            if (value1 == 0)
+            {
+                value1 = m_Input;
+            }
+            else
+            {
+                Equal();
+            }
+
+            Log = Log + string.Format("{0}{1}", value1,opp);
+            Input = 0;
+        }
+
+        #region Binding
         // Event handler for the plus button click
         public void EqualButton_Click(object sender, RoutedEventArgs e)
         {
@@ -63,83 +80,38 @@ namespace Yokogawa_Simple_Calculater
         }
         public void PlusButton_Click(object sender, RoutedEventArgs e)
         {
-            if (value1 == 0)
-            {
-                value1 = m_Input;
-            }
-            else
-            {
-                Equal();
-            }
+
             opp = "+";
-            Log = Log + string.Format("{0}+", value1);
-            Input = 0;
+            ButtonClick();
         }
         public void MinusButton_Click(object sender, RoutedEventArgs e)
         {
-            if (value1 == 0)
-            {
-                value1 = m_Input;
-            }
-            else
-            {
-                Equal();
-            }
             opp = "-";
-            Log = Log + string.Format("{0}-", value1);
-            Input = 0;
+            ButtonClick();
         }
         public void MultiplyButton_Click(object sender, RoutedEventArgs e)
         {
-            if (value1 == 0)
-            {
-                value1 = m_Input;
-            }
-            else
-            {
-                Equal();
-            }
             opp = "*";
-            Log = Log + string.Format("{0}*", value1);
-            Input = 0;
+            ButtonClick();
         }
         public void DevideButton_Click(object sender, RoutedEventArgs e)
         {
-            if (value1 == 0)
-            {
-                value1 = m_Input;
-            }
-            else
-            {
-                Equal();
-            }
             opp = "/";
-            Log = Log + string.Format("{0}/", value1);
-            Input = 0;
+            ButtonClick();
         }
         public void ExponentiationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (value1 == 0)
-            {
-                value1 = m_Input;
-            }
-            else
-            {
-                Equal();
-            }
             opp = "^";
-            Log = Log + string.Format("{0}^", value1);
-            Input = 0;
+            ButtonClick();
         }
 
         public void SquareRootButton_Click(object sender, RoutedEventArgs e)
         {
 
-            value1 = m_Input;
-            Log = string.Format("√{0} = ", value1);
-            Input = Math.Sqrt(value1);
+            Log = string.Format("√{0} = ", Input);
+            Input = Math.Sqrt(Input);
             Log = Log + string.Format("{0}\n", Input);
-
+            value1 = 0;
         }
         public void ClearButton_Click(object sender, RoutedEventArgs e)
         {
@@ -153,7 +125,9 @@ namespace Yokogawa_Simple_Calculater
         {
             Input = 0;
         }
+        #endregion
 
+#region property
         // Backing field for the Result property
         private string m_Log;
 
@@ -185,6 +159,8 @@ namespace Yokogawa_Simple_Calculater
                 }
             }
         }
+        #endregion
+
         // Implement INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
