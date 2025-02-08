@@ -6,7 +6,55 @@
         xmlns:local="clr-namespace:Yokogawa_Simple_Calculater"
         mc:Ignorable="d"
         Title="Calculator" Height="450" Width="800">
-    <Grid>
-        
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <!-- Single column -->
+        </Grid.ColumnDefinitions>
+        <Label Content="{Binding Log,Mode=OneWay}" Margin="4" Grid.Row="0"/>
+        <TextBox Text="{Binding Input, Mode=TwoWay}" Margin="4" Grid.Row="1"/>
+        <Button Content="="  Margin="4"  Grid.Row="2"  Click="EqualButton_Click"/>
+       
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="+"  Margin="4"  Grid.Column="0" Click="PlusButton_Click"/>
+            <Button Content="-"  Margin="4"  Grid.Column="1"  Click="MinusButton_Click"/>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="*"  Margin="4"  Grid.Column="0" Click="MultiplyButton_Click"/>
+            <Button Content="/"  Margin="4"  Grid.Column="1"  Click="DevideButton_Click"/>
+        </Grid>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="^"  Margin="4"  Grid.Column="0" Click=" ExponentiationButton_Click"/>
+            <Button Content="√"  Margin="4"  Grid.Column="1"  Click="SquareRootButton_Click"/>
+        </Grid>
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="C"  Margin="4"  Grid.Column="0" Click=" ClearButton_Click"/>
+            <Button Content="CE"  Margin="4"  Grid.Column="1"  Click="ClearInputButton_Click"/>
+        </Grid>
     </Grid>
 </Window>
